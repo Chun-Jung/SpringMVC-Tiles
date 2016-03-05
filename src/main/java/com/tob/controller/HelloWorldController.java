@@ -10,7 +10,7 @@ public class HelloWorldController {
 	@RequestMapping("/hello")
 	public ModelAndView helloWorld(){
 		ModelAndView model = new ModelAndView();
-		model.setViewName("hello");
+		model.setViewName("welcome");
 		
 		String message = "Hello World, Spring MVC & Tiles";  
 		model.addObject("message", message);

@@ -12,7 +12,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/hello</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 </web-app>

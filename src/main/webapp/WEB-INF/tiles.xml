@@ -12,6 +12,7 @@
     </definition>  
     
     <definition name="login" extends="base.definition">
+    	<put-attribute name="title" value="Login page" />  
     	<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
     </definition>
   
@@ -20,7 +21,7 @@
         <put-attribute name="body" value="/WEB-INF/jsp/contact.jsp" />  
     </definition>  
   
-    <definition name="hello" extends="base.definition">  
+    <definition name="welcome" extends="base.definition">  
         <put-attribute name="title" value="Hello Spring MVC" />  
         <put-attribute name="body" value="/WEB-INF/jsp/hello.jsp" />  
     </definition>  

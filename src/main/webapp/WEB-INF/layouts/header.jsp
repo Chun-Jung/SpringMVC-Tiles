@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 		<nav class="navbar navbar-fixed-top " role="navigation">
 			<div class="row col-xs-12">
 				<div class="container">
@@ -11,7 +13,7 @@
 							<span class="icon-bar"></span> 
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">SpringMVC</a>
+						<a class="navbar-brand" href="<%=request.getContextPath()%>/hello.do">SpringMVC</a>
 					</div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
@@ -22,6 +24,8 @@
 						<!-- end of menu -->
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
+							<c:choose>
+								<c:when test="${userSession ne null }">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 									我的選單 
 									<span class="caret"></span>
@@ -41,6 +45,11 @@
 									<hr>
 									<li role="presentation"><a href="#">登出</a></li>
 								</ul>
+								</c:when>
+								<c:otherwise>
+							<a href="<%=request.getContextPath()%>/employee/login.do">登入</a>
+								</c:otherwise>
+							</c:choose>
 							</li>
 						</ul>
 					</div>
