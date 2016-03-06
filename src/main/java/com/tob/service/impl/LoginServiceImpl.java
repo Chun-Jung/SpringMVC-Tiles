@@ -20,11 +20,11 @@ public class LoginServiceImpl implements LoginService {
 		emp1.setAccount("account1");
 		emp1.setPassword("password1");
 		Emp emp2 = new Emp();
-		emp1.setEmpNo(7002);
+		emp2.setEmpNo(7002);
 		emp2.setAccount("account2");
 		emp2.setPassword("password2");
 		Emp emp3 = new Emp();
-		emp1.setEmpNo(7003);
+		emp3.setEmpNo(7003);
 		emp3.setAccount("account3");
 		emp3.setPassword("password3");
 		

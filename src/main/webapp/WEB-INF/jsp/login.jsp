@@ -12,5 +12,6 @@
 				<label for="empPassowrd">Password</label>
 				<input type="password" class="form-control" id="empPassowrd" name="empPassword" />
 			</div>
+			<input type="hidden" name="redirectURL" value="${redirectURL }" /> 
 			<button class="btn btn-primary">submit</button>
 		</form>

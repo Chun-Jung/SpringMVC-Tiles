@@ -13,7 +13,7 @@ public class Emp {
 	/** 密碼 */
 	private String password;
 	/** 姓名 */
-	private String name;
+	private String empName;
 	/** 手機號碼 */
 	private String phoneNumber;
 	/** 電話號碼 */
@@ -25,6 +25,8 @@ public class Emp {
 	
 	/** 到職日 */
 	private Date availabilityDt;
+	/** 建立日期 */
+	private Date createDt;
 
 	public Integer getEmpNo() {
 		return empNo;
@@ -58,12 +60,12 @@ public class Emp {
 		this.password = password;
 	}
 
-	public String getName() {
-		return name;
+	public String getEmpName() {
+		return empName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEmpName(String empName) {
+		this.empName = empName;
 	}
 
 	public String getPhoneNumber() {
@@ -104,6 +106,14 @@ public class Emp {
 
 	public void setAvailabilityDt(Date availabilityDt) {
 		this.availabilityDt = availabilityDt;
+	}
+
+	public Date getCreateDt() {
+		return createDt;
+	}
+
+	public void setCreateDt(Date createDt) {
+		this.createDt = createDt;
 	}
 	
 }

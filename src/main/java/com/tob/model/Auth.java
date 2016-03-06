@@ -4,7 +4,7 @@ public class Auth {
 	/** 權限編號 */
 	private Integer authNo;
 	/** 權限名稱 */
-	private String name;
+	private String authName;
 	
 	public Integer getAuthNo() {
 		return authNo;
@@ -12,11 +12,11 @@ public class Auth {
 	public void setAuthNo(Integer authNo) {
 		this.authNo = authNo;
 	}
-	public String getName() {
-		return name;
+	public String getAuthName() {
+		return authName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setAuthName(String authName) {
+		this.authName = authName;
 	}
 	
 }

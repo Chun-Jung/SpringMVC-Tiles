@@ -16,10 +16,19 @@
 						<a class="navbar-brand" href="<%=request.getContextPath()%>/hello.do">SpringMVC</a>
 					</div>
 					<div id="navbar" class="collapse navbar-collapse">
+					<jsp:useBean id="empAuthService" class="com.tob.service.impl.EmpAuthServiceImpl" type="com.tob.service.EmpAuthService" />
 						<ul class="nav navbar-nav">
-							<li><a href="#">功能1</a></li>
-							<li><a href="#">功能2</a></li>
-							<li><a href="#">功能3</a></li>
+						<c:forEach var="item" items="${empAuthService.getEmpAuth(userSession) }">
+							<c:if test="${item.authNo eq 1 }">
+							<li><a href="<%=request.getContextPath()%>/magagement/action1">功能1</a></li>
+							</c:if>
+							<c:if test="${item.authNo eq 2 }">
+							<li><a href="<%=request.getContextPath()%>/magagement/action2">功能2</a></li>
+							</c:if>
+							<c:if test="${item.authNo eq 3 }">
+							<li><a href="<%=request.getContextPath()%>/magagement/action3">功能3</a></li>
+							</c:if>
+						</c:forEach>
 						</ul>
 						<!-- end of menu -->
 						<ul class="nav navbar-nav navbar-right">

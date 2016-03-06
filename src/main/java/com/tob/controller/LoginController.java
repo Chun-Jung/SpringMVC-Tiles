@@ -1,5 +1,8 @@
 package com.tob.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,26 +28,28 @@ public class LoginController {
 	public ModelAndView check(
 			@RequestParam(value="redirectURL", required=false) String redirectURL, 
 			@RequestParam("empAccount") String empAccount, 
-			@RequestParam("empPassword") String empPassword){
+			@RequestParam("empPassword") String empPassword,
+			HttpServletRequest req){
 		ModelAndView model = new ModelAndView();
 		
 		Emp emp = loginService.login(empAccount, empPassword);
 		if(emp.getEmpNo() == null){
 			model.addObject("empAccount", empAccount);
 			model.addObject("errorMessage", "帳號或密碼錯誤!");
-//			model.addObject("redirectURL", redirectURL);
+			model.addObject("redirectURL", redirectURL);
 			model.setViewName("login");
 			return model;
 		}
 		
-		model.setViewName("welcome");
-		model.addObject("message", "登入成功! " + emp.getAccount() + " 您好。");
-		model.addObject("userSession", emp);
-//		if(StringUtils.isBlank(redirectURL)){
-//			model.setViewName("redirect:" + "/hello");
-//		}else{
-//			model.setViewName(redirectURL);
-//		}
+		HttpSession session = req.getSession();
+		session.setAttribute("userSession", emp);
+		if(StringUtils.isBlank(redirectURL)){
+			model.setViewName("welcome");
+			model.addObject("message", "登入成功! " + emp.getAccount() + " 您好。");
+		}else{
+			model.setViewName("redirect:" + redirectURL);
+		}
+		
 		return model;
 	}
 }
