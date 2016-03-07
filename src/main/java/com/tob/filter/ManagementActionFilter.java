@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import com.tob.model.Emp;
 
-@WebFilter(servletNames="#managementActionDispatcher")
+@WebFilter(urlPatterns="/management/*")
 public class ManagementActionFilter implements Filter {
 	
-	private final String LOGIN_URL = "/employee/login";
+	private final String LOGIN_URL = "/employee/login.do";
 
 	@Override
 	public void destroy() {
@@ -33,7 +33,8 @@ public class ManagementActionFilter implements Filter {
 		Emp emp = (Emp) session.getAttribute("userSession");
 		if(emp == null || emp.getEmpNo() == null){
 			HttpServletResponse httpRes = (HttpServletResponse) res;
-			httpRes.sendRedirect(req.getServletContext() + LOGIN_URL);
+			String sourceURL = httpReq.getServletPath();
+			httpRes.sendRedirect(httpReq.getContextPath() + LOGIN_URL + "?sourceURL=" + sourceURL);
 			return;
 		}
 		chain.doFilter(req, res);

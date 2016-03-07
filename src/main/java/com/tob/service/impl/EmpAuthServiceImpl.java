@@ -82,4 +82,20 @@ public class EmpAuthServiceImpl implements EmpAuthService {
 		return authResultList;
 	}
 
+	@Override
+	public boolean checkEmpAuth(Emp emp, Auth auth) {
+		List<Integer> empHasAuthsNo = new ArrayList<>();
+		for(EmpAuth empAuth : empAuthList){
+			if(empAuth.getEmpNo().equals(emp.getEmpNo())){
+				empHasAuthsNo.add(empAuth.getAuthNo());
+			}
+		}
+		for(Integer authNo : empHasAuthsNo){
+			if(authNo.equals(auth.getAuthNo())){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

@@ -20,13 +20,16 @@ public class LoginController {
 	private LoginService loginService;
 	
 	@RequestMapping("/employee/login")
-	public ModelAndView login(){
-		return new ModelAndView("login");
+	public ModelAndView login(@RequestParam(value="sourceURL", required=false) String sourceURL){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("login");
+		model.addObject("sourceURL", sourceURL);
+		return model;
 	}
 	
 	@RequestMapping(value="/employee/check", params = {"empAccount", "empPassword"}, method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView check(
-			@RequestParam(value="redirectURL", required=false) String redirectURL, 
+			@RequestParam(value="sourceURL", required=false) String sourceURL, 
 			@RequestParam("empAccount") String empAccount, 
 			@RequestParam("empPassword") String empPassword,
 			HttpServletRequest req){
@@ -36,18 +39,18 @@ public class LoginController {
 		if(emp.getEmpNo() == null){
 			model.addObject("empAccount", empAccount);
 			model.addObject("errorMessage", "帳號或密碼錯誤!");
-			model.addObject("redirectURL", redirectURL);
+			model.addObject("sourceURL", sourceURL);
 			model.setViewName("login");
 			return model;
 		}
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("userSession", emp);
-		if(StringUtils.isBlank(redirectURL)){
+		if(StringUtils.isBlank(sourceURL)){
 			model.setViewName("welcome");
 			model.addObject("message", "登入成功! " + emp.getAccount() + " 您好。");
 		}else{
-			model.setViewName("redirect:" + redirectURL);
+			model.setViewName("redirect:" + sourceURL);
 		}
 		
 		return model;

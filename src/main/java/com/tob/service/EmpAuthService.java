@@ -7,4 +7,5 @@ import com.tob.model.Emp;
 
 public interface EmpAuthService {
 	public List<Auth> getEmpAuth(Emp emp);
+	public boolean checkEmpAuth(Emp emp, Auth auth);
 }

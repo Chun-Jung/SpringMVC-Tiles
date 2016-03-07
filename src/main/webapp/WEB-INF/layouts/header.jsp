@@ -20,13 +20,13 @@
 						<ul class="nav navbar-nav">
 						<c:forEach var="item" items="${empAuthService.getEmpAuth(userSession) }">
 							<c:if test="${item.authNo eq 1 }">
-							<li><a href="<%=request.getContextPath()%>/magagement/action1">功能1</a></li>
+							<li><a href="<%=request.getContextPath()%>/management/action1.do">功能1</a></li>
 							</c:if>
 							<c:if test="${item.authNo eq 2 }">
-							<li><a href="<%=request.getContextPath()%>/magagement/action2">功能2</a></li>
+							<li><a href="<%=request.getContextPath()%>/management/action2.do">功能2</a></li>
 							</c:if>
 							<c:if test="${item.authNo eq 3 }">
-							<li><a href="<%=request.getContextPath()%>/magagement/action3">功能3</a></li>
+							<li><a href="<%=request.getContextPath()%>/management/action3.do">功能3</a></li>
 							</c:if>
 						</c:forEach>
 						</ul>
@@ -40,18 +40,18 @@
 									<span class="caret"></span>
 								</a>
 								<ul class="dropdown-menu" role="menu">
-									<li role="presentation" class="dropdown-header">參加活動</li>
-									<li role="presentation"><a href="#">我的個人頁面</a></li>
-									<li role="presentation"><a href="#">我的票卷</a></li>
-									<hr>
-									<li role="presentation" class="dropdown-header">主辦活動</li>
-									<li role="presentation"><a href="#">我舉辦的活動</a></li>
-									<li role="presentation"><a href="#">設定主辦單位</a></li>
-									<li role="presentation"><a href="#">通訊錄</a></li>
-									<hr>
-									<li role="presentation" class="dropdown-header">帳號設定</li>
-									<li role="presentation"><a href="#">修改個人資料</a></li>
-									<hr>
+<!-- 									<li role="presentation" class="dropdown-header">參加活動</li> -->
+<!-- 									<li role="presentation"><a href="#">我的個人頁面</a></li> -->
+<!-- 									<li role="presentation"><a href="#">我的票卷</a></li> -->
+<!-- 									<hr> -->
+<!-- 									<li role="presentation" class="dropdown-header">主辦活動</li> -->
+<!-- 									<li role="presentation"><a href="#">我舉辦的活動</a></li> -->
+<!-- 									<li role="presentation"><a href="#">設定主辦單位</a></li> -->
+<!-- 									<li role="presentation"><a href="#">通訊錄</a></li> -->
+<!-- 									<hr> -->
+<!-- 									<li role="presentation" class="dropdown-header">帳號設定</li> -->
+<!-- 									<li role="presentation"><a href="#">修改個人資料</a></li> -->
+<!-- 									<hr> -->
 									<li role="presentation"><a href="#">登出</a></li>
 								</ul>
 								</c:when>
